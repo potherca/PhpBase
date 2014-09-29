@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Presentations by Potherca</title>
+    <link href="http://pother.ca/CssBase/css/base.css"  rel="stylesheet" type="text/css" media="all" />
+    <link href="http://pother.ca/CssBase/css/ribbon.css"  rel="stylesheet" type="text/css" media="all" />
+
+    <style>
+        .page li {
+            list-style-type: none;
+            margin: 1em 0;
+        }
+        .page a:first-child {
+            color: black;
+            margin: .35em -1em;
+        }
+
+        .page a:first-child::after {
+            content:"\A"; white-space:pre;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="page">
+        <p>Content could not be loaded. Please <a href="README.md" class="source">visit the text version here</a>.</p>
+    </div>
+
+    <script>
+        var sUrl = $('.source').attr('href');
+
+        $.get(sUrl, function(p_sResult) {
+
+            $('.page').html(
+                    marked(p_sResult)
+            );
+
+            $('code').addClass('css');
+
+            var $H1 = $('h1');
+            if($H1.length > 0){
+                document.title = $H1.text() || 'Untitled Document';
+            }
+
+        });
+
+    </script>
+
+    <div class="banner banner-right"><a
+        href="https://github.com/potherca/PhpBase/"
+    >Visit repo on GitHub</a></div>
+</body>
+</html>
