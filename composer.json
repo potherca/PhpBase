@@ -1,0 +1,29 @@
+{
+    "name": "potherca/php-base",
+    "description": "Base for all PHP classes in Potherca Projects",
+    "version": "0.0.0",
+    "homepage": "http://Pother.ca/PhpBase",
+    "license": "GPL-3.0+",
+    "support": {
+        "source": "https://github.com/potherca/php-base/",
+        "issues": "https://github.com/potherca/php-base/issues"
+    },
+    "authors": [
+        {
+            "name": "Potherca",
+            "email": "potherca@gmail.com",
+            "homepage": "http://pother.ca/",
+            "role": "Kick-Ass Web Developer!"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Potherca\\Base\\": "src/"
+        }
+    }
+}
