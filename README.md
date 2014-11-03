@@ -1,7 +1,10 @@
 # PHP Base - Base for all classes in Potherca Projects
 
 [![Project Stage Badge: Experimental]][Project Stage Page]
+[![Build Status Badge]][Travis-CI Page]
+[![Coverage Status Badge]][Coveralls Page]
 [![License Badge]][GPL3+]
+
 
 ## General Concept
 
@@ -78,13 +81,20 @@ Extending classes may not, themselves, contain Data or Logic.
 
 ---
 
-0.0.0 – The Source Code for this project is available on github.com under a
+0.1.1 – The Source Code for this project is available on github.com under a
 [GPLv3 License][GPL3+] – Created by [Potherca]
 
 
+[Composition over Inheritance]: http://c2.com/cgi/wiki?CompositionInsteadOfInheritance
+
 [GPL3+]: ./LICENSE
 [Potherca]: http://pother.ca/
-[Project Stage Page]: http://bl.ocks.org/potherca/a2ae67caa3863a299ba0
+
+[Build Status Badge]: https://travis-ci.org/potherca/PhpBase.svg
+[Coverage Status Badge]: https://img.shields.io/coveralls/potherca/PhpBase.svg
 [License Badge]: https://img.shields.io/badge/License-GPL3%2B-lightgray.svg
 [Project Stage Badge: Experimental]: http://img.shields.io/badge/Project%20Stage-Experimental-yellow.svg
-[Composition over Inheritance]: http://c2.com/cgi/wiki?CompositionInsteadOfInheritance
+
+[Coveralls Page]: https://coveralls.io/r/potherca/PhpBase
+[Project Stage Page]: http://bl.ocks.org/potherca/a2ae67caa3863a299ba0
+[Travis-CI Page]: https://travis-ci.org/potherca/PhpBase
