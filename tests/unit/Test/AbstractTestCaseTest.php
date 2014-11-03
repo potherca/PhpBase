@@ -42,6 +42,15 @@ namespace Potherca\Base\Test
 
         /**
          * @test
+         * @covers ::assertClassFieldsArePrivate
+         */
+        final public function abstractTestCaseShouldContainAnAssertWhenClassDoesNotContainExposedProperties()
+        {
+            parent::assertClassFieldsArePrivate(\stdClass::class);
+        }
+
+            /**
+         * @test
          *
          * @covers ::assertClassFieldsArePrivate
          *
@@ -61,6 +70,15 @@ namespace Potherca\Base\Test
                     $this->assertEquals($p_sExpected, $eFail->getMessage());
                 }
             }
+        }
+
+        /**
+         * @test
+         * @covers ::assertClassMethodsAreAbstractOrFinalOrPrivate
+         */
+        final public function abstractTestCaseShouldContainAnAssertWhenClassDoesNotContainExposedMethods()
+        {
+            parent::assertClassMethodsAreAbstractOrFinalOrPrivate(\stdClass::class);
         }
 
         /**
@@ -110,6 +128,7 @@ namespace Potherca\Base\Test
                     . ' - PHPUnit_Framework_TestCase -> backupStaticAttributesBlacklist (protected)' . PHP_EOL
                     . ' - PHPUnit_Framework_TestCase -> runTestInSeparateProcess (protected)' . PHP_EOL
                     . ' - PHPUnit_Framework_TestCase -> preserveGlobalState (protected)' . PHP_EOL
+                    . 'Failed asserting that actual size 6 matches expected size 0.'
                 )
             );
         }
@@ -338,6 +357,7 @@ namespace Potherca\Base\Test
                     . ' - PHPUnit_Framework_Assert -> markTestSkipped (public)' . PHP_EOL
                     . ' - PHPUnit_Framework_Assert -> getCount (public)' . PHP_EOL
                     . ' - PHPUnit_Framework_Assert -> resetCount (public)' . PHP_EOL
+                    . 'Failed asserting that actual size 216 matches expected size 0.'
                 )
             );
         }

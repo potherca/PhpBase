@@ -65,7 +65,7 @@ namespace Potherca\Base\Test
          * the responsibilities/structure of your class model needs rethinking.
          *
          * If a method _must_ be override-able by a child class it should be
-         * marked as `@exposed` in the method doc-block.
+         * marked as `@expose` in the method doc-block.
          */
         final public function methodsShouldBeAbstractOrFinalOrPrivate()
         {
@@ -87,30 +87,25 @@ namespace Potherca\Base\Test
          */
         final public function assertClassFieldsArePrivate($p_sClassName)
         {
-            $reflector = $this->getReflectionObjectOfClassUnderTest($p_sClassName);
+            $oReflector = $this->getReflectionObjectOfClassUnderTest($p_sClassName);
 
-            $aProperties = $reflector->getProperties();
-            $aPrivateProperties = $reflector->getProperties(\ReflectionProperty::IS_PRIVATE);
+            $aExposed = $oReflector->getProperties(
+                \ReflectionProperty::IS_PUBLIC | \ReflectionProperty::IS_PROTECTED
+            );
+            $aPropertyList = $this->buildExposedPropertiesList($aExposed);
 
-            if (count($aProperties) !== count($aPrivateProperties)) {
-                $sMessage = $this->buildExposedPropertiesMessage($reflector);
-                throw new \PHPUnit_Framework_AssertionFailedError($sMessage);
-            }
+            $this->assertCount(0, $aPropertyList, $this->buildExposureMessage(self::ERROR_MAKE_PROPERTIES_PRIVATE , $aPropertyList));
         }
 
         final public function assertClassMethodsAreAbstractOrFinalOrPrivate($p_sClassName)
         {
-            $reflector = $this->getReflectionObjectOfClassUnderTest($p_sClassName);
+            $oReflector = $this->getReflectionObjectOfClassUnderTest($p_sClassName);
 
-            $aMethods = $reflector->getMethods();
-            $aShieldedMethods = $reflector->getMethods(
-                \ReflectionMethod::IS_PRIVATE | \ReflectionMethod::IS_ABSTRACT | \ReflectionMethod::IS_FINAL
-            );
+            $aReflectionMethods = $oReflector->getMethods();
 
-            if (count($aMethods) !== count($aShieldedMethods)) {
-                $sMessage = $this->buildExposedMethodsMessage($reflector);
-                throw new \PHPUnit_Framework_AssertionFailedError($sMessage);
-            }
+            $aMethodList = $this->buildExposedMethodsList($aReflectionMethods);
+
+            $this->assertCount(0, $aMethodList, $this->buildExposureMessage(self::ERROR_MAKE_METHODS_PRIVATE,$aMethodList));
         }
 
         ////////////////////////////// MOCKS AND STUBS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -172,35 +167,14 @@ namespace Potherca\Base\Test
         }
 
         /**
-         * @param \ReflectionClass $reflector
+         * @param string $p_sFormat
+         * @param string[] $p_aList
          *
          * @return string
          */
-        private function buildExposedPropertiesMessage(\ReflectionClass $reflector)
+        private function buildExposureMessage($p_sFormat, $p_aList)
         {
-            $aExposedProperties = $reflector->getProperties(
-                \ReflectionProperty::IS_PUBLIC | \ReflectionProperty::IS_PROTECTED
-            );
-            $sMessage = self::ERROR_MAKE_PROPERTIES_PRIVATE . PHP_EOL . '%s';
-            $aPropertyList = $this->buildExposedPropertiesList($aExposedProperties);
-
-            $sMessage = sprintf($sMessage, implode($aPropertyList));
-            return $sMessage;
-        }
-
-        /**
-         * @param \ReflectionClass $reflector
-         *
-         * @return string
-         */
-        private function buildExposedMethodsMessage(\ReflectionClass $reflector)
-        {
-            $aExposedMethods = $reflector->getMethods();
-            $sMessage = self::ERROR_MAKE_METHODS_PRIVATE . PHP_EOL . '%s';
-            $aMethodList = $this->buildExposedMethodsList($aExposedMethods);
-
-            $sMessage = sprintf($sMessage, implode($aMethodList));
-            return $sMessage;
+            return  sprintf($p_sFormat . PHP_EOL . '%s', implode(PHP_EOL, $p_aList));
         }
 
         /**
@@ -227,7 +201,6 @@ namespace Potherca\Base\Test
                             ? ' static'
                             : '')
                         . ')'
-                        . PHP_EOL
                     ;
 
                     array_push($aPropertyList, $sPropertyName);
@@ -238,16 +211,16 @@ namespace Potherca\Base\Test
         }
 
         /**
-         * @param \ReflectionMethod[] $p_aAllProperties
+         * @param \ReflectionMethod[] $p_aReflectionMethods
          *
          * @return string[]
          */
-        private function buildExposedMethodsList(array $p_aAllProperties)
+        private function buildExposedMethodsList(array $p_aReflectionMethods)
         {
             $aMethodList = array();
 
             array_walk(
-                $p_aAllProperties,
+                $p_aReflectionMethods,
                 function (\ReflectionMethod $p_oReflectionMethod) use (&$aMethodList) {
 
                     $sDocComment = $p_oReflectionMethod->getDocComment();
@@ -272,7 +245,6 @@ namespace Potherca\Base\Test
                                 ? 'public'
                                 : 'protected')
                             . ')'
-                            . PHP_EOL
                         ;
 
                         array_push($aMethodList, $sMethodName);
