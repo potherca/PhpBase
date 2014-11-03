@@ -78,7 +78,7 @@ Extending classes may not, themselves, contain Data or Logic.
 
 ---
 
-0.0.0 – The Source Code for this project is available on github.com under a
+0.1.1 – The Source Code for this project is available on github.com under a
 [GPLv3 License][GPL3+] – Created by [Potherca]
 
 
