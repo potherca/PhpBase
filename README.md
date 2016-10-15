@@ -97,4 +97,4 @@ Extending classes may not, themselves, contain Data or Logic.
 
 [Coveralls Page]: https://coveralls.io/r/potherca/PhpBase
 [Project Stage Page]: http://bl.ocks.org/potherca/a2ae67caa3863a299ba0
-[Travis-CI Page]: https://travis-ci.org/potherca/PhpBase
+[Travis-CI Page]: https://travis-ci.org/Potherca/PhpBase
