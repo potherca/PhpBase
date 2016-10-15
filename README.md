@@ -90,7 +90,7 @@ Extending classes may not, themselves, contain Data or Logic.
 [GPL3+]: ./LICENSE
 [Potherca]: http://pother.ca/
 
-[Build Status Badge]: https://travis-ci.org/potherca/PhpBase.svg
+[Build Status Badge]: https://travis-ci.org/Potherca/PhpBase.svg
 [Coverage Status Badge]: https://img.shields.io/coveralls/potherca/PhpBase.svg
 [License Badge]: https://img.shields.io/badge/License-GPL3%2B-lightgray.svg
 [Project Stage Badge: Experimental]: http://img.shields.io/badge/Project%20Stage-Experimental-yellow.svg
