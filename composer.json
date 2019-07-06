@@ -22,7 +22,7 @@
     },
     "require-dev": {
         "satooshi/php-coveralls": "dev-master",
-        "phpunit/phpunit": "~4.3"
+        "phpunit/phpunit": "4.8.36"
     },
     "autoload": {
         "psr-4": {
