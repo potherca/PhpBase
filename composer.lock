@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec096abdb9df40d58959079cb7b35040",
+    "content-hash": "29b95faf9fa1f182c39e8c1916b54414",
     "packages": [],
     "packages-dev": [
         {
@@ -213,19 +213,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/manifest.git",
-                "reference": "7761fcacf03b4d4f16e7ccb606d4879ca431fcf4"
+                "reference": "8c8bd1bb1a22f311b1b4886662b989d0d02aab77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/manifest/zipball/7761fcacf03b4d4f16e7ccb606d4879ca431fcf4",
-                "reference": "7761fcacf03b4d4f16e7ccb606d4879ca431fcf4",
+                "url": "https://api.github.com/repos/phar-io/manifest/zipball/8c8bd1bb1a22f311b1b4886662b989d0d02aab77",
+                "reference": "8c8bd1bb1a22f311b1b4886662b989d0d02aab77",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-phar": "*",
+                "ext-xmlwriter": "*",
                 "phar-io/version": "^2.0",
-                "php": "^5.6 || ^7.0"
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.2"
             },
             "type": "library",
             "extra": {
@@ -260,7 +264,7 @@
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
-            "time": "2018-07-08T19:23:20+00:00"
+            "time": "2019-07-09T12:18:04+00:00"
         },
         {
             "name": "phar-io/version",
@@ -530,12 +534,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "825d13bb7cf608f3209b7ea315dd033723dbf183"
+                "reference": "d471d0d2b529a67c6a722dd446c4ec90881ac315"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/825d13bb7cf608f3209b7ea315dd033723dbf183",
-                "reference": "825d13bb7cf608f3209b7ea315dd033723dbf183",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d471d0d2b529a67c6a722dd446c4ec90881ac315",
+                "reference": "d471d0d2b529a67c6a722dd446c4ec90881ac315",
                 "shasum": ""
             },
             "require": {
@@ -544,7 +548,7 @@
                 "php": "^7.2",
                 "phpunit/php-file-iterator": "^2.0.2",
                 "phpunit/php-text-template": "^1.2.1",
-                "phpunit/php-token-stream": "^3.0.1",
+                "phpunit/php-token-stream": "^3.0.2",
                 "sebastian/code-unit-reverse-lookup": "^1.0.1",
                 "sebastian/environment": "^4.2.2",
                 "sebastian/version": "^2.0.1",
@@ -585,7 +589,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-07-02T07:41:54+00:00"
+            "time": "2019-07-08T05:29:42+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -733,12 +737,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "98831941cc60e07e7e94d4ff000440015f60da67"
+                "reference": "c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/98831941cc60e07e7e94d4ff000440015f60da67",
-                "reference": "98831941cc60e07e7e94d4ff000440015f60da67",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c",
+                "reference": "c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c",
                 "shasum": ""
             },
             "require": {
@@ -774,20 +778,20 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2019-07-02T07:43:15+00:00"
+            "time": "2019-07-08T05:24:54+00:00"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.2.4",
+            "version": "8.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "25fe0b5031b24722f66a75ad479a074cccc1bb37"
+                "reference": "c1b8534b3730f20f58600124129197bf1183dc92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/25fe0b5031b24722f66a75ad479a074cccc1bb37",
-                "reference": "25fe0b5031b24722f66a75ad479a074cccc1bb37",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c1b8534b3730f20f58600124129197bf1183dc92",
+                "reference": "c1b8534b3730f20f58600124129197bf1183dc92",
                 "shasum": ""
             },
             "require": {
@@ -857,7 +861,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-07-03T08:30:33+00:00"
+            "time": "2019-07-15T06:26:24+00:00"
         },
         {
             "name": "psr/log",
